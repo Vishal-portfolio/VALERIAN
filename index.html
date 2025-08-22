@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valerian — Where Elegance meets Edge</title>
+  <meta name="description" content="Valerian — luxury fashion for the discerning. Where Elegance meets Edge." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/@studio-freight/lenis@1/bundled/lenis.min.js"></script>
+  <script defer src="./js/app.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-left">
+    <a href="#contact">+ Contact Us</a>
+  </div>
+
+  <div class="nav-center">
+    <h1 class="brand">VALERIAN</h1>
+  </div>
+
+  <div class="nav-right">
+    <a href="#" class="panel-trigger" data-panel="search-panel" aria-label="Search"><i class="fas fa-search"></i></a>
+    <a href="#" class="panel-trigger" data-panel="user-panel" aria-label="Account"><i class="fas fa-user"></i></a>
+    <a href="#" class="panel-trigger" data-panel="cart-panel" aria-label="Shopping Cart"><i class="fas fa-shopping-bag"></i></a>
+    <button class="panel-trigger menu-btn" data-panel="menu-panel" aria-label="Menu"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+
+<section id="top" class="hero">
+  <div class="hero-content">
+    <h1 class="split">
+      Valerian
+      <span class="tagline">Where Elegance meets Edge</span>
+    </h1>
+    <p class="subtle">Premium garments crafted for presence, precision, and poise.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#collection">Shop the Collection</a>
+      <a class="btn link" href="#story">Discover the Story</a>
+    </div>
+  </div>
+</section>
+
+<section id="collection" class="section">
+  <div class="section-head">
+    <h2 class="title reveal">Signature Collection</h2>
+    <p class="kicker reveal">Limited drops. Impeccable tailoring. Made to be noticed.</p>
+  </div>
+
+  <div class="grid" id="products-grid" aria-live="polite">
+    <a href="#" class="product-card reveal">
+  <div class="card-image">
+    <img src="./images/blazer1.jpg" alt="A person wearing a finely tailored beige suit jacket">
+  </div>
+  <div class="card-info">
+    <h3 class="card-title">The Kensington Blazer</h3>
+    <p class="card-description">Sharp Silhouette</p>
+  </div>
+</a>
+
+<a href="#" class="product-card reveal">
+  <div class="card-image">
+    <img src="./images/trouser.jpg" alt="A close-up of a dark, textured fabric with intricate stitching">
+  </div>
+  <div class="card-info">
+    <h3 class="card-title">The Sterling Trouser</h3>
+    <p class="card-description">Woven Fabric</p>
+  </div>
+</a>
+
+<a href="#" class="product-card reveal">
+  <div class="card-image">
+    <img src="./images/grown.jpg" alt="A woman in a flowing, elegant white dress">
+  </div>
+  <div class="card-info">
+    <h3 class="card-title">The Aspen Gown</h3>
+    <p class="card-description">Timeless Elegance</p>
+  </div>
+</a>
+    </div>
+
+  <div class="center">
+    <a class="btn ghost" href="#contact">Bespoke Enquiries</a>
+  </div>
+</section>
+
+<section id="story" class="section story">
+  <div class="story-media reveal-clip">
+    <img src="./images/story.jpg" alt="Fashion designer sketching at an atelier desk" />
+  </div>
+  <div class="story-copy">
+    <h2 class="title reveal">Our Story</h2>
+    <p class="lead reveal">
+      Born from an obsession with detail, Valerian merges heritage craftsmanship with modern silhouettes.
+      Each piece is engineered to move with confidence — quiet luxury, unmistakable impact.
+    </p>
+    <p class="reveal">
+      From the first sketch to the final stitch, our atelier refines every seam. Ethical sourcing, meticulous cuts,
+      and a palette that whispers elegance — this is fashion that elevates your presence without ever raising its voice.
+    </p>
+    <a class="btn primary reveal" href="#collection">Explore Pieces</a>
+  </div>
+</section>
+
+<section id="lookbook" class="lookbook section">
+  <div class="section-head">
+    <h2 class="title reveal">Lookbook</h2>
+    <p class="kicker reveal">A study in line, light, and movement.</p>
+  </div>
+
+  <div class="lookbook-track" id="lookbook-track">
+    <figure><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop" alt="Lookbook image 1"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1400&auto=format&fit=crop" alt="Lookbook image 2"></figure>
+    <figure><img src="./images/img3.jpg" alt="Lookbook image 3"></figure>
+    <figure><img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?q=80&w=1400&auto=format&fit=crop" alt="Lookbook image 4"></figure>
+  </div>
+  
+</section>
+
+<section id="contact" class="section contact">
+  <div class="contact-inner">
+    <h2 class="title reveal">Contact</h2>
+    <p class="kicker reveal">For private viewings and bespoke requests</p>
+
+    <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Thank you — we will be in touch.');">
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Message" rows="4"></textarea>
+      <button class="btn primary" type="submit">Request Access</button>
+    </form>
+
+    <div class="social reveal">
+      <a href="#" aria-label="Instagram" class="soc">IG</a>
+      <a href="#" aria-label="X" class="soc">X</a>
+      <a href="#" aria-label="Pinterest" class="soc">Pi</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© <span id="yr"></span> Valerian. All rights reserved.</p>
+</footer>
+
+<div class="panel" id="search-panel">
+  <button class="close-btn" aria-label="Close search panel">&times;</button>
+  <h3>Search</h3>
+  <form class="search-form">
+    <input type="search" placeholder="Search products..." />
+  </form>
+</div>
+
+<div class="panel" id="user-panel">
+  <button class="close-btn" aria-label="Close account panel">&times;</button>
+  <h3>Account</h3>
+  <form class="account-form">
+    <input type="email" placeholder="Email" required />
+    <input type="password" placeholder="Password" required />
+    <button class="btn primary" type="submit">Log In</button>
+  </form>
+  <a href="#">Create an Account</a>
+</div>
+
+<div class="panel" id="cart-panel">
+  <button class="close-btn" aria-label="Close shopping bag panel">&times;</button>
+  <h3>Shopping Bag</h3>
+  <p>Your bag is empty.</p>
+</div>
+
+<div class="panel" id="menu-panel">
+  <button class="close-btn" aria-label="Close menu panel">&times;</button>
+  <nav class="panel-nav">
+      <ul>
+        <li><a href="#collection">Collections</a></li>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#lookbook">Lookbook</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+  </nav>
+</div>
+
+<div class="overlay"></div>
+
+</body>
+</html>
