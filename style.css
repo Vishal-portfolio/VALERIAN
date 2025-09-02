@@ -104,7 +104,7 @@ body {
   border-bottom: 1px solid var(--line);
 
   /* Background Image */
-  background-image: url('../images/home.jpg'); /* adjust path if needed */
+  background-image: url('images/home.jpg'); /* adjust path if needed */
   background-size: cover;
   background-position:  center;
   background-repeat: no-repeat;
@@ -389,4 +389,5 @@ body {
   font-size: 1rem;
   color: #666;
   margin: 0;
+
 }
