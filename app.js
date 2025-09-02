@@ -1,13 +1,16 @@
 // Wait until the entire webpage (HTML) is loaded and ready.
 document.addEventListener('DOMContentLoaded', () => {
 
+
   // --- START: PANEL FUNCTIONALITY ---
   // This is the core logic for your icons.
+
 
   // 1. Get all the elements we need to work with.
   const allPanelTriggers = document.querySelectorAll('.panel-trigger'); // All icons/buttons that open a panel.
   const allCloseButtons = document.querySelectorAll('.close-btn');     // The '×' buttons inside the panels.
   const pageOverlay = document.querySelector('.overlay');               // The dark background overlay.
+
 
   // 2. A function to close any currently open panel.
   const closeAllPanels = () => {
@@ -21,14 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
     pageOverlay.classList.remove('active');
   };
 
+
   // 3. Set up the "open" triggers (for search, user, cart, and menu icons).
   allPanelTriggers.forEach(trigger => {
     trigger.addEventListener('click', (event) => {
       event.preventDefault(); // Stop the default link behavior.
 
+
       // Get the ID of the panel we want to open from the button's 'data-panel' attribute.
       const panelId = trigger.dataset.panel;
       const panelToOpen = document.getElementById(panelId);
+
 
       // If a panel with that ID exists...
       if (panelToOpen) {
@@ -41,19 +47,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
   // 4. Set up the "close" triggers.
   // When any '×' button is clicked, close the panels.
   allCloseButtons.forEach(button => {
     button.addEventListener('click', closeAllPanels);
   });
 
+
   // When the dark overlay is clicked, also close the panels.
   pageOverlay.addEventListener('click', closeAllPanels);
+
 
   // --- END: PANEL FUNCTIONALITY ---
 
 
+
+
   // --- All your other scripts (animations, etc.) below ---
+
 
   // Smooth scrolling with Lenis
   try {
@@ -68,11 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+
+
   // Footer year
   const yearSpan = document.getElementById('yr');
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
+
 
   // GSAP animations
   if (typeof gsap !== 'undefined') {
@@ -106,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.warn("GSAP library not loaded.");
   }
-  
+ 
   // The rest of your script for product loading and other functions would go here...
   // I am leaving it out for brevity, but you should keep it in your file.
 });

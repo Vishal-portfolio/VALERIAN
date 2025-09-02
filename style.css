@@ -7,6 +7,7 @@
   --accent: #b89b5e; /* champagne gold */
 }
 
+
 * { box-sizing: border-box }
 html, body { height: 100% }
 html { scroll-behavior: smooth }
@@ -17,6 +18,7 @@ body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.45;
 }
+
 
 /* Navbar */
 .navbar {
@@ -40,8 +42,7 @@ body {
 }
 
 .nav-center .brand {
-  
-  font-family:  "Lucida Handwriting", cursive;
+  font-family: "Cormorant Garamond", serif; /* Changed for a more premium feel */
   line-height:1.45;
   font-size: 26px;
   font-weight: 600;
@@ -69,6 +70,7 @@ body {
   font-size: 18px;
 }
 
+
 /* BUTTONS */
 .btn {
   cursor: pointer;
@@ -94,6 +96,7 @@ body {
 .btn.primary:hover { box-shadow: 0 12px 22px rgba(12, 12, 12, .16) }
 .btn.ghost:hover { border-color: var(--accent); color: var(--accent) }
 
+
 /* HERO */
 .hero {
   position: relative;
@@ -103,14 +106,21 @@ body {
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 
-  /* Background Image */
-  background-image: url('../images/home.jpg'); /* adjust path if needed */
+  /* BACKGROUND: Use a high-quality gym/fitness image here */
+  background-image: url('https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=1471&auto=format&fit=crop');
   background-size: cover;
-  background-position:  center;
+  background-position: center;
   background-repeat: no-repeat;
+  color: #E3735E
+}
 
-  /* Text color for contrast */
-  color: hsl(0, 0%, 100%);
+/* Adds a dark overlay for better text readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(17, 17, 17, 0.4);
+    z-index: 1;
 }
 
 .hero-content {
@@ -134,7 +144,13 @@ body {
   text-transform: uppercase;
 }
 .hero .subtle { margin: 18px auto 26px; max-width: 680px; color: #fff }
-.cta-row { display: flex; gap: 14px; justify-content: center }
+.cta-row { 
+  display: flex; 
+  gap: 14px;
+  justify-content: center ;
+
+  }
+
 
 /* SECTIONS */
 .section { padding: 80px 5vw }
@@ -153,47 +169,152 @@ body {
 }
 .kicker { margin: 0; color: var(--muted); max-width: 560px }
 
-/* GRID / CARDS */
+
+/* FEATURES GRID ('What We Offer' section) */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
-.card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 18px;
+.product-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   overflow: hidden;
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s;
-  will-change: transform;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.card-media { aspect-ratio: 4/5; overflow: hidden; position: relative; background: #eee }
-.card-media img {
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.card-image {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--line);
+}
+.card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .6s ease;
 }
-.card:hover .card-media img { transform: scale(1.06) }
-.card-body { padding: 16px }
-.card-title { font-weight: 600 }
-.card-meta {
-  display: flex;
-  justify-content: space-between;
+.card-info {
+  text-align: center;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+.card-description {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
   color: var(--muted);
-  margin-top: 6px;
+  margin: 0;
 }
-.price { color: var(--text); font-weight: 600 }
-.card:hover { border-color: var(--accent); box-shadow: 0 16px 36px rgba(0, 0, 0, .08) }
 
-/* STORY */
+/* ============================================ */
+/* MEMBERSHIP PLANS STYLING                     */
+/* ============================================ */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: start; /* Aligns cards to the top */
+}
+
+.plan-card {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.plan-card.popular {
+  border-color: var(--accent);
+  transform: scale(1.05); /* Makes the popular plan stand out */
+}
+.plan-card.popular:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    color: var(--bg);
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.plan-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.plan-price {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.plan-price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.plan-description {
+  margin: 0 0 1.5rem 0;
+  color: var(--muted);
+  min-height: 3em; /* Ensures cards align nicely */
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  text-align: left;
+  display: inline-block; /* Centers the list block */
+}
+
+.plan-features li {
+  margin-bottom: 0.75rem;
+}
+
+.plan-features li::before {
+  content: '✓';
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 10px;
+}
+.plan-card .btn { margin-top: 1rem }
+
+
+/* STORY / PHILOSOPHY */
 .story { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: center }
 @media (max-width:980px){ .story { grid-template-columns: 1fr; } }
 .story-media { border-radius: 22px; overflow: hidden; border: 1px solid var(--line) }
 .story-media img { width: 100%; height: auto; display: block }
 .story-copy .lead { font-size: clamp(16px, 2vw, 18px); color: #2b2b2b }
 
-/* LOOKBOOK */
+
+/* LOOKBOOK / GALLERY */
 .lookbook-track {
   display: grid;
   grid-auto-flow: column;
@@ -217,6 +338,7 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
 
 /* CONTACT */
 .contact-inner { max-width: 820px; margin: 0 auto }
@@ -249,6 +371,7 @@ body {
 }
 .soc:hover { border-color: var(--accent); color: var(--accent) }
 
+
 /* FOOTER */
 .footer {
   padding: 40px 5vw;
@@ -256,6 +379,7 @@ body {
   color: var(--muted);
   text-align: center;
 }
+
 
 /* Slide-in panels */
 .panel {
@@ -296,6 +420,7 @@ body {
 }
 .panel form .btn { margin-top: 0.5rem; }
 
+
 /* Menu Panel Navigation */
 .panel-nav ul { list-style: none; padding: 0; margin-top: 4rem; }
 .panel-nav li a {
@@ -309,6 +434,7 @@ body {
 }
 .panel-nav li a:hover { color: var(--accent); }
 
+
 /* Overlay */
 .overlay {
   position: fixed;
@@ -321,72 +447,22 @@ body {
 }
 .overlay.active { opacity: 1; visibility: visible }
 
+
 /* Reveal effects */
 .reveal { opacity: 0; transform: translateY(18px) }
 .reveal-clip { clip-path: inset(18% 0 18% 0); opacity: 0 }
 
+
 /* Small utility */
 .center { text-align: center; margin-top: 24px }
-/* ============================================ */
-/* COLLECTION GRID STYLING            */
-/* ============================================ */
-
-/* Your existing section head styling might need tweaking for spacing */
-.section-head {
-  text-align: center;
-  margin-bottom: 4rem; /* Adds space between title and grid */
-}
-
-/* The main product grid container */
-.grid {
-  display: grid;
-  /* Creates a responsive grid with columns between 300px and 1fr */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem; /* The space between your product cards */
-  margin-bottom: 4rem; /* Adds space between grid and button */
-}
-
-/* Individual product card link */
-.product-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  overflow: hidden; /* Ensures content respects border radius if you add one */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-5px); /* Lifts the card slightly on hover */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-/* Image container and styling */
-.card-image {
-  width: 100%;
-  height: 450px; /* A fixed height creates a uniform gallery */
-  margin-bottom: 1.5rem;
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Prevents images from stretching or squashing */
-}
-
-/* Text content below the image */
-.card-info {
-  text-align: center;
-}
-
-.card-title {
-  font-family: 'Times New Roman', serif; /* Or your preferred heading font */
-  font-size: 1.25rem;
-  margin: 0 0 0.5rem 0;
-}
-
-.card-description {
-  font-family: Arial, sans-serif; /* Or your preferred body font */
-  font-size: 1rem;
-  color: #666;
+.nav-center .brand {
+  font-family: "Lucida Handwriting", cursive;
+  line-height: 1.45;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 4px;
   margin: 0;
+}
+.split{
+  color: #ffffff;
 }
